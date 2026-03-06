@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
-from app.routers import crawl_router, health_router, scrape_router
+from app.routers import crawl_router, health_router, scrape_router, dify_router
 
 
 def create_app() -> FastAPI:
@@ -25,6 +25,7 @@ def create_app() -> FastAPI:
     app.include_router(crawl_router)
     app.include_router(health_router)
     app.include_router(scrape_router)
+    app.include_router(dify_router)
 
     return app
 
