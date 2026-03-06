@@ -56,8 +56,7 @@ def crawl_status(job_id: str):
     Check crawl job status and get results if complete.
     """
     headers = {
-        "Authorization": f"Bearer {settings.FIRECRAWL_API_KEY}",
-        "Content-Type": "application/json"
+        "Authorization": f"Bearer {settings.FIRECRAWL_API_KEY}"
     }
 
     try:
