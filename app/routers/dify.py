@@ -6,8 +6,9 @@ import time
 from app.schemas import DifyCrawlRequest, DifyCrawlResponse
 from app.config import settings
 
-logger = logging.getLogger(__name__)
 router = APIRouter()
+
+logger = logging.getLogger(__name__)
 
 @router.post("/dify/crawl", response_model=DifyCrawlResponse)
 def dify_crawl_url(request: DifyCrawlRequest):
