@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: firecrawl-api
+    ports:
+      - "8000:8000"
+    environment:
+      # 在这里覆盖日志级别，开发环境用 debug
+      - LOG_LEVEL=debug
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # 开发环境挂载代码，实现热重载 (需要 uvicorn --reload)
+      # 注意：如果使用 entrypoint 脚本，需要在脚本里加 --reload 或在这里覆盖命令
+      - ./app:/app/app 
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
