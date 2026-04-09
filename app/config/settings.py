@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     DIFY_DOMAIN: str = os.getenv("DIFY_DOMAIN")
     DIFY_BACKEND_API_KEY: str = os.getenv("DIFY_BACKEND_API_KEY")
     FIRECRAWL_API_KEY: str = os.getenv("FIRECRAWL_API_KEY")
-    FIRECRAWL_API_URL: str = "http://api:3002/v1"
+    FIRECRAWL_API_URL: str = "http://localhost:3002/v1"
     APP_NAME: str = "Firecrawl Wrapper"
     DEBUG : bool = False
 
